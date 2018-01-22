@@ -1,0 +1,39 @@
+!_TAG_FILE_SORTED	2	/0=unsorted, 1=sorted, 2=foldcase/
+;	/home/zoe/.config/nvim/init.vim	/^nmap ; :$/;"	m	language:Vim
+<C-c>	/home/zoe/.config/nvim/init.vim	/^nmap <C-c> "+p$/;"	m	language:Vim
+<C-c>	/home/zoe/.config/nvim/init.vim	/^vmap <C-c> "+y$/;"	m	language:Vim
+<Down>	/home/zoe/.config/nvim/init.vim	/^noremap <Down> 10<C-w>-$/;"	m	language:Vim
+<F5>	/home/zoe/.config/nvim/init.vim	/^nnoremap <F5> :MundoToggle<CR>$/;"	m	language:Vim
+<F8>	/home/zoe/.config/nvim/init.vim	/^nmap <F8> :TagbarToggle<CR>$/;"	m	language:Vim
+<leader>1	/home/zoe/.config/nvim/init.vim	/^nmap <leader>1 <F1>$/;"	m	language:Vim
+<leader><Space>	/home/zoe/.config/nvim/init.vim	/^nmap <leader><Space> :Ack $/;"	m	language:Vim
+<leader>t	/home/zoe/.config/nvim/init.vim	/^nmap <leader>t :Ack todo<cr>$/;"	m	language:Vim
+<Left>	/home/zoe/.config/nvim/init.vim	/^nmap <Left> 10<C-w><$/;"	m	language:Vim
+<Left>	/home/zoe/.config/nvim/init.vim	/^vmap <Left> <gv$/;"	m	language:Vim
+<Right>	/home/zoe/.config/nvim/init.vim	/^nmap <Right> 10<C-w>>$/;"	m	language:Vim
+<Right>	/home/zoe/.config/nvim/init.vim	/^vmap <Right> >gv$/;"	m	language:Vim
+<Space>	/home/zoe/.config/nvim/init.vim	/^noremap <Space> za$/;"	m	language:Vim
+<Up>	/home/zoe/.config/nvim/init.vim	/^noremap <Up> 10<C-w>+$/;"	m	language:Vim
+g:ackprg	/home/zoe/.config/nvim/init.vim	/^  let g:ackprg = 'ag --vimgrep'$/;"	v	language:Vim
+g:easytags_async	/home/zoe/.config/nvim/init.vim	/^let g:easytags_async=1  " Async eval$/;"	v	language:Vim
+g:easytags_by_filetype	/home/zoe/.config/nvim/init.vim	/^let g:easytags_by_filetype='~\/.config\/nvim\/tags'  " tags by ft$/;"	v	language:Vim
+g:indentLine_color_term	/home/zoe/.config/nvim/init.vim	/^let g:indentLine_color_term = 237$/;"	v	language:Vim
+g:indentLine_enabled	/home/zoe/.config/nvim/init.vim	/^let g:indentLine_enabled = 1$/;"	v	language:Vim
+g:lightline	/home/zoe/.config/nvim/init.vim	/^let g:lightline = {$/;"	v	language:Vim
+g:tex_flavor	/home/zoe/.config/nvim/init.vim	/^let g:tex_flavor='latex'$/;"	v	language:Vim
+H	/home/zoe/.config/nvim/init.vim	/^noremap H <C-w>h$/;"	m	language:Vim
+J	/home/zoe/.config/nvim/init.vim	/^noremap J <C-w>j$/;"	m	language:Vim
+K	/home/zoe/.config/nvim/init.vim	/^noremap K <C-w>k$/;"	m	language:Vim
+L	/home/zoe/.config/nvim/init.vim	/^noremap L <C-w>l$/;"	m	language:Vim
+LLFileName	/home/zoe/.config/nvim/init.vim	/^function! LLFileName()$/;"	f	language:Vim
+mapleader	/home/zoe/.config/nvim/init.vim	/^let mapleader = ","$/;"	v	language:Vim
+Mirror	/home/zoe/.config/nvim/init.vim	/^function! Mirror(dict)$/;"	f	language:Vim
+python_highlight_all	/home/zoe/.config/nvim/init.vim	/^let python_highlight_all = 1$/;"	v	language:Vim
+q	/home/zoe/.config/nvim/init.vim	/^vmap q gc$/;"	m	language:Vim
+RunShellCommand	/home/zoe/.config/nvim/init.vim	/^function! s:RunShellCommand(cmdline)$/;"	f	language:Vim
+S	/home/zoe/.config/nvim/init.vim	/^function! S(number)$/;"	f	language:Vim
+Shell	/home/zoe/.config/nvim/init.vim	/^command! -complete=shellcmd -nargs=+ Shell call s:RunShellCommand(<q-args>)$/;"	c	language:Vim
+SwapWords	/home/zoe/.config/nvim/init.vim	/^function! SwapWords(dict, ...)$/;"	f	language:Vim
+t	/home/zoe/.config/nvim/init.vim	/^vmap t :Tabularize \/=<Enter>$/;"	m	language:Vim
+terminal	/home/zoe/.config/nvim/init.vim	/^augroup terminal$/;"	a	language:Vim
+w!!	/home/zoe/.config/nvim/init.vim	/^cmap w!! w !sudo tee > \/dev\/null %$/;"	m	language:Vim

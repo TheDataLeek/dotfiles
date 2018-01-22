@@ -1,0 +1,5 @@
+let g:netrw_dirhistmax  =10
+let g:netrw_dirhist_cnt =3
+let g:netrw_dirhist_1='/home/zoe/projects/evolve/d3demo'
+let g:netrw_dirhist_2='/home/zoe/.config/fish'
+let g:netrw_dirhist_3='/home/zoe/projects/boulderpython.org'

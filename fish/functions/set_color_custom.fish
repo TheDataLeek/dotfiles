@@ -1,0 +1,1 @@
+/home/zoe/.config/fisherman/jellyfish/functions/set_color_custom.fish

@@ -1,0 +1,24 @@
+normal
+b294bb
+81a2be
+8abeb7
+f0c674
+cc6666
+bryellow --bold
+bryellow
+b294bb
+b5bd68
+969896
+brgreen
+--underline
+green
+red
+--background=brblue
+bryellow --background=brblack
+white --bold --background=brblack
+white --bold --underline
+
+B3A06D yellow
+brwhite --background=cyan
+--bold
+normal
