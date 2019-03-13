@@ -15,6 +15,8 @@ set PATH /usr/bin/site_perl $PATH
 set PATH /usr/bin/vendor_perl $PATH
 set PATH /usr/bin/core_perl $PATH
 set PATH /home/zoe/.local/bin $PATH
+set PATH /home/zoe/bin $PATH
+set PATH /home/zoe/node_modules/bin $PATH
 
 set MYPYPATH ""
 set MYPYPATH /home/zoe/.local/lib/python3.6/site-packages $MYPYPATH
@@ -28,5 +30,7 @@ set -x EDITOR /usr/bin/nvim
 
 set -x SHELL /usr/bin/fish
 set -x PYENV_SHELL /usr/bin/fish
+
+set -x npm_config_prefix /home/zoe/node_modules
 
 # eval (pipenv --completion)
