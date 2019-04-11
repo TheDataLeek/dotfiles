@@ -98,6 +98,12 @@ set list listchars=tab:▸\ ,trail:⋅,nbsp:⋅
 " <F1> Shortcut
 nmap <leader>1 <F1>
 
+" Copy current file to windows downloads
+nmap <leader>c :w<Enter>:!cp % /mnt/c/Users/zfarmer/Downloads/<Enter><Enter>
+
+" Copy current file clipboard
+nmap <leader>y :%y+<Enter>
+
 " Searching Smart Cases
 set infercase
 set hlsearch
@@ -159,7 +165,9 @@ hi NonText ctermbg=None
 hi SpecialKey guibg=NONE ctermbg=NONE
 
 " Colouring for line numbers
+" Transparent left gutter
 hi LineNr guibg=NONE ctermbg=NONE
+" Coloured left gutter
 
 """""""""""""""""""""""""""""""""""""""""
 " Syntax Highlighting
@@ -342,3 +350,4 @@ let g:tex_flavor='latex'
 let g:indentLine_enabled = 1
 " let g:indentLine_char = '|'
 let g:indentLine_color_term = 237
+let g:indentLine_char_list = ['|', '¦', '┆', '┊']
