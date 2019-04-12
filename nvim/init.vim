@@ -34,6 +34,8 @@ Plugin 'jiangmiao/auto-pairs'         " Auto insert pairs
 Plugin 'kien/rainbow_parentheses.vim' " Rainbow Parentheses
 Plugin 'junegunn/goyo.vim'            " Remove EVERYTHING
 Plugin 'Yggdroot/indentLine'          " Pretty indent lines
+Plugin 'tpope/vim-dadbod'             " Database Connection
+Plugin 'b4b4r07/vim-sqlfmt'           " SQL Formatting
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Finalize Vundle
@@ -117,6 +119,8 @@ cmap w!! w !sudo tee > /dev/null %
 " Commentary.vim Plugin
 """""""""""""""""""""""""""""""""""""""""
 vmap q gc
+vmap <C-_> gc
+nmap <C-_> gcc
 
 """""""""""""""""""""""""""""""""""""""""
 " Shell commands from vim
@@ -351,3 +355,9 @@ let g:indentLine_enabled = 1
 " let g:indentLine_char = '|'
 let g:indentLine_color_term = 237
 let g:indentLine_char_list = ['|', '¦', '┆', '┊']
+
+""""""""""""""""""""""""""""""""""""'
+" SQL Formatting
+""""""""""""""""""""""""""""""""""""'
+let g:sqlfmt_command = "sqlformat"
+let g:sqlfmt_options = ""
