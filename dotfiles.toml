@@ -1,0 +1,78 @@
+[[files]]
+src = ".gitconfig"
+dst = "~/.gitconfig"
+
+[[files]]
+src = ".tmux.conf"
+dst = "~/.tmux.conf"
+
+[[files]]
+src = ".bashrc"
+dst = "~/.bashrc"
+
+[[files]]
+src = ".bash_profile"
+dst = "~/.bash_profile"
+
+[[files]]
+src = "kitty/kitty.conf"
+dst = "~/.config/kitty/kitty.conf"
+
+[[files]]
+src = "nvim/init.vim"
+dst = "~/.config/nvim/init.vim"
+
+[[files]]
+src = "nvim/ftplugin/R.vim"
+dst = "~/.config/nvim/ftplugin/R.vim"
+
+[[files]]
+src = "nvim/ftplugin/py.vim"
+dst = "~/.config/nvim/ftplugin/py.vim"
+
+[[files]]
+src = "nvim/ftplugin/sql.vim"
+dst = "~/.config/nvim/ftplugin/sql.vim"
+
+[[files]]
+src = "fish/config.fish"
+dst = "~/.config/fish/config.fish"
+
+[[files]]
+src = "fish/fish_colors"
+dst = "~/.config/fish/fish_colors"
+
+[[files]]
+src = "fish/fishfile"
+dst = "~/.config/fish/fishfile"
+
+[[files]]
+src = "fish/functions/fisher.fish"
+dst = "~/.config/fish/functions/fisher.fish"
+
+[[files]]
+src = "fish/functions/fish_prompt.fish"
+dst = "~/.config/fish/functions/fish_prompt.fish"
+
+[[files]]
+src = "fish/completions/fisher.fish"
+dst = "~/.config/fish/completions/fisher.fish"
+
+[[files]]
+src = "git/ignore"
+dst = "~/.config/git/ignore"
+
+[[steps]]
+name = "Install Vundle"
+cmd = "git clone https://github.com/VundleVim/Vundle.vim.git ~/.config/nvim/bundle/Vundle.vim"
+skip_if = "~/.config/nvim/bundle/Vundle.vim"
+
+[[steps]]
+name = "Clone YouCompleteMe"
+cmd = "git clone --recursive https://github.com/ycm-core/YouCompleteMe.git ~/.config/nvim/bundle/YouCompleteMe"
+skip_if = "~/.config/nvim/bundle/YouCompleteMe"
+
+[[steps]]
+name = "Compile YouCompleteMe"
+cmd = "python3 ~/.config/nvim/bundle/YouCompleteMe/install.py"
+skip_if = "~/.config/nvim/bundle/YouCompleteMe/third_party/ycmd/build"
