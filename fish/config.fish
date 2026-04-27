@@ -2,42 +2,48 @@ function ls
     command ls -lah --color $argv
 end
 
+function lt
+    command ls -lahtr --color $argv
+end
+
 function c
     command uvx diffweave-ai $argv
 end
 
-function accio
-    command pacaur -S $argv
+# PATH
+fish_add_path $HOME/.local/bin
+fish_add_path $HOME/bin
+fish_add_path $HOME/.cargo/bin
+fish_add_path $HOME/node_modules/bin
+fish_add_path /usr/local/bin
+fish_add_path /usr/local/sbin
+fish_add_path /opt/google-cloud-sdk/bin
+
+# Homebrew (macOS Apple Silicon)
+if test -d /opt/homebrew
+    fish_add_path /opt/homebrew/bin
+    fish_add_path /opt/homebrew/opt/rsync/bin
 end
 
-set PATH ""
-set PATH /opt/google-cloud-sdk/bin $PATH
-set PATH /usr/local/sbin $PATH
-set PATH /usr/local/bin $PATH
-set PATH /usr/bin $PATH
-set PATH /usr/bin/site_perl $PATH
-set PATH /usr/bin/vendor_perl $PATH
-set PATH /usr/bin/core_perl $PATH
-set PATH /home/zoe/.local/bin $PATH
-set PATH /home/zoe/bin $PATH
-set PATH /home/zoe/node_modules/bin $PATH
-set PATH /snap/bin $PATH
+# Environment
+set -x EDITOR (which nvim)
+set -x SHELL (which fish)
 
-set MYPYPATH ""
-set MYPYPATH /home/zoe/.local/lib/python3.6/site-packages $MYPYPATH
-set MYPYPATH /usr/lib/python3.6/site-packages $MYPYPATH
+# Tool hooks
+type -q direnv; and direnv hook fish | source
+type -q zoxide; and zoxide init fish | source
+type -q uv; and uv generate-shell-completion fish | source
+type -q uvx; and uvx --generate-shell-completion fish | source
 
-set PYTHONPATH ""
-set PYTHONPATH /home/zoe/.local/lib/python3.6/site-packages $PYTHONPATH
-set PYTHONPATH /usr/lib/python3.6/site-packages $PYTHONPATH
+# Google Cloud SDK
+if test -f "$HOME/google-cloud-sdk/path.fish.inc"
+    source "$HOME/google-cloud-sdk/path.fish.inc"
+end
 
-set -x EDITOR /usr/bin/nvim
+# Bun
+if test -d "$HOME/.bun"
+    set --export BUN_INSTALL "$HOME/.bun"
+    fish_add_path $BUN_INSTALL/bin
+end
 
-set -x SHELL /usr/bin/fish
-set -x PYENV_SHELL /usr/bin/fish
-
-set -x npm_config_prefix /home/zoe/node_modules
-
-# eval (pipenv --completion)
-
-direnv hook fish | source
+# Machine-specific overrides live in ~/.config/fish/conf.d/

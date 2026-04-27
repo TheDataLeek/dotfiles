@@ -27,6 +27,7 @@ def install(*, dry_run: bool = False):
         link_file(src, dst, dry_run)
     for step in load_steps():
         run_step(step, dry_run)
+    post_install(dry_run)
 
 
 @app.command
@@ -145,6 +146,27 @@ def run_step(step: dict, dry_run: bool) -> None:
         result = subprocess.run(step["cmd"], shell=True)
         if result.returncode != 0:
             console.print(f"  [red]failed (exit {result.returncode})[/]")
+
+
+TOUCH_FILES = [
+    Path("~/.gitconfig.local").expanduser(),
+    Path("~/.bashrc.local").expanduser(),
+    Path("~/.bash_profile.local").expanduser(),
+    Path("~/.config/fish/conf.d/local.fish").expanduser(),
+    Path("~/.config/fish/conf.d/secrets.fish").expanduser(),
+]
+
+
+def post_install(dry_run: bool) -> None:
+    """Touch files that should exist but are never committed."""
+    for path in TOUCH_FILES:
+        if not path.exists():
+            if not dry_run:
+                path.parent.mkdir(parents=True, exist_ok=True)
+                path.touch()
+            console.print(
+                f"[green]✓ created[/]  {path}" + (" [dim](dry run)[/]" if dry_run else "")
+            )
 
 
 def get_status(src: Path, dst: Path) -> str:

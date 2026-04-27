@@ -1,45 +1,30 @@
-# Defined in - @ line 2
 function fish_prompt --description 'Write out the prompt'
-	#Save the return status of the previous command
-    set stat $status
+        set -l last_status $status
+        set -l normal (set_color normal)
+        set -l status_color (set_color brgreen)
+        set -l cwd_color (set_color $fish_color_cwd)
+        set -l vcs_color (set_color brpurple)
+        set -l prompt_status ""
 
-    if not set -q __fish_prompt_normal
-        set -g __fish_prompt_normal (set_color normal)
-    end
+        # Since we display the prompt on a new line allow the directory names to be longer.
+        set -q fish_prompt_pwd_dir_length
+        or set -lx fish_prompt_pwd_dir_length 0
 
-    if not set -q __fish_color_blue
-        set -g __fish_color_blue (set_color -o blue)
-    end
-
-    #Set the color for the status depending on the value
-    set __fish_color_status (set_color -o green)
-    if test $stat -gt 0
-        set __fish_color_status (set_color -o red)
-    end
-
-    switch $USER
-
-        case root toor
-
-            if not set -q __fish_prompt_cwd
+        # Color the prompt differently when we're root
+        set -l suffix '❯'
+        if functions -q fish_is_root_user; and fish_is_root_user
                 if set -q fish_color_cwd_root
-                    set -g __fish_prompt_cwd (set_color $fish_color_cwd_root)
-                else
-                    set -g __fish_prompt_cwd (set_color $fish_color_cwd)
+                        set cwd_color (set_color $fish_color_cwd_root)
                 end
-            end
+                set suffix '#'
+        end
 
-            printf '%s@%s %s%s%s# ' $USER (prompt_hostname) "$__fish_prompt_cwd" (prompt_pwd) "$__fish_prompt_normal"
+        # Color the prompt in red on error
+        if test $last_status -ne 0
+                set status_color (set_color $fish_color_error)
+                set prompt_status $status_color "[" $last_status "]" $normal
+        end
 
-        case '*'
-
-            if not set -q __fish_prompt_cwd
-                set -g __fish_prompt_cwd (set_color $fish_color_cwd)
-            end
-            if set -q VIRTUAL_ENV
-                echo -n -s (set_color -b blue white) "(" (basename "$VIRTUAL_ENV") ")" (set_color normal) " "
-            end
-            printf '[%s] %s%s@%s %s%s %s(%s)%s \f\r> ' (date "+%H:%M:%S") "$__fish_color_blue" $USER (prompt_hostname) "$__fish_prompt_cwd" "$PWD" "$__fish_color_status" "$stat" "$__fish_prompt_normal"
-
-    end
+        echo -s (prompt_login) ' ' $cwd_color (prompt_pwd) $vcs_color (fish_vcs_prompt) $normal ' ' $prompt_status
+        echo -n -s $status_color $suffix ' ' $normal
 end

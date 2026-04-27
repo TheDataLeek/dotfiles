@@ -14,5 +14,11 @@ dev = [
     "pytest>=9.0.3",
 ]
 
+[tool.uv]
+index = [
+    { name = "pypi", url = "https://pypi.org/simple", default = true },
+    { name = "block-pypi", url = "https://pypi.block-artifacts.com/block-pypi/simple" },
+]
+
 [tool.pytest.ini_options]
 pythonpath = ["."]
