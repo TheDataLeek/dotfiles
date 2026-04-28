@@ -152,6 +152,7 @@ TOUCH_FILES = [
     Path("~/.gitconfig.local").expanduser(),
     Path("~/.bashrc.local").expanduser(),
     Path("~/.bash_profile.local").expanduser(),
+    Path("~/.config/kitty/kitty.local.conf").expanduser(),
     Path("~/.config/fish/conf.d/local.fish").expanduser(),
     Path("~/.config/fish/conf.d/secrets.fish").expanduser(),
 ]
