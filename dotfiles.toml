@@ -39,6 +39,14 @@ src = "fish/config.fish"
 dst = "~/.config/fish/config.fish"
 
 [[files]]
+src = "fish/conf.d/starship.fish"
+dst = "~/.config/fish/conf.d/starship.fish"
+
+[[files]]
+src = "starship/starship.toml"
+dst = "~/.config/starship.toml"
+
+[[files]]
 src = "fish/fish_colors"
 dst = "~/.config/fish/fish_colors"
 
@@ -49,10 +57,6 @@ dst = "~/.config/fish/fishfile"
 [[files]]
 src = "fish/functions/fisher.fish"
 dst = "~/.config/fish/functions/fisher.fish"
-
-[[files]]
-src = "fish/functions/fish_prompt.fish"
-dst = "~/.config/fish/functions/fish_prompt.fish"
 
 [[files]]
 src = "fish/completions/fisher.fish"
