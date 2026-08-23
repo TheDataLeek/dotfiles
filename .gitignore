@@ -1,2 +1,4 @@
 nvim/.netrwhist
 uv.lock
+__pycache__/
+.letta/
