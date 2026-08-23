@@ -54,17 +54,15 @@ dst = "~/.config/fish/fish_colors"
 src = "fish/fishfile"
 dst = "~/.config/fish/fishfile"
 
-[[files]]
-src = "fish/functions/fisher.fish"
-dst = "~/.config/fish/functions/fisher.fish"
-
-[[files]]
-src = "fish/completions/fisher.fish"
-dst = "~/.config/fish/completions/fisher.fish"
 
 [[files]]
 src = "git/ignore"
 dst = "~/.config/git/ignore"
+
+[[steps]]
+name = "Install fisher"
+cmd = "fish -c 'curl -sL https://raw.githubusercontent.com/jorgebucaran/fisher/main/functions/fisher.fish | source && fisher install jorgebucaran/fisher'"
+skip_if = "~/.config/fish/functions/fisher.fish"
 
 [[steps]]
 name = "Install Vundle"
