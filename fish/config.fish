@@ -15,6 +15,7 @@ fish_add_path $HOME/.local/bin
 fish_add_path $HOME/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/node_modules/bin
+fish_add_path (npm config --global get prefix)
 fish_add_path /usr/local/bin
 fish_add_path /usr/local/sbin
 fish_add_path /opt/google-cloud-sdk/bin
